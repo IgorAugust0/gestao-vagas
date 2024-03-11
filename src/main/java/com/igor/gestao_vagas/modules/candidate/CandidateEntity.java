@@ -5,6 +5,7 @@ import java.util.UUID;
 import org.hibernate.validator.constraints.Length;
 
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 
@@ -14,8 +15,9 @@ public class CandidateEntity {
     private UUID id;
     private String name;
 
+    @NotBlank()
     @Length(min = 4, max = 50, message = "O nome deve ter entre 4 e 50 caracteres")
-    @Pattern(regexp = "^(?!\\s*$).+", message = "O campo usuário não deve conter espaços")
+    @Pattern(regexp = "\\S+", message = "O campo usuário não deve conter espaços")
     private String username;
 
     @Email(message = "O campo deve conter um email válido")
