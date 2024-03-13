@@ -6,11 +6,19 @@ package com.igor.gestao_vagas.exceptions;
  */
 public class UserAlreadyExistsException extends RuntimeException {
     private final String conflictingField;
-    public UserAlreadyExistsException(String conflictingField, String value) {
-        super("Candidato com " + conflictingField + " \"" + value + "\" já existente.");
+    private final String userType;
+    
+    public UserAlreadyExistsException(String conflictingField, String value, String userType) {
+        super(userType + " com " + conflictingField + " \"" + value + "\" já existente.");
         this.conflictingField = conflictingField;
+        this.userType = userType;
     }
+    
     public String getConflictingField(){
         return conflictingField;
+    }
+    
+    public String getUserType(){
+        return userType;
     }
 }

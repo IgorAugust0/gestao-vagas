@@ -27,9 +27,9 @@ public class CandidateService {
                     boolean usernameExists = existingUser.getUsername().equals(candidateEntity.getUsername());
                     boolean emailExists = existingUser.getEmail().equals(candidateEntity.getEmail());
                     if (usernameExists) {
-                        throw new UserAlreadyExistsException("nome de usuário", candidateEntity.getUsername());
+                        throw new UserAlreadyExistsException("nome de usuário", candidateEntity.getUsername(), "Candidato");
                     } else if (emailExists) {
-                        throw new UserAlreadyExistsException("email", candidateEntity.getEmail());
+                        throw new UserAlreadyExistsException("email", candidateEntity.getEmail(), "Candidato");
                     }
                 });
         return this.candidateRepository.save(candidateEntity);

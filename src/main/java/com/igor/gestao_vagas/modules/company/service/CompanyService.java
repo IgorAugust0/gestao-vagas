@@ -25,9 +25,9 @@ public class CompanyService {
                     boolean usernameExists = existingCompany.getUsername().equals(companyEntity.getUsername());
                     boolean emailExists = existingCompany.getEmail().equals(companyEntity.getEmail());
                     if (usernameExists) {
-                        throw new UserAlreadyExistsException("nome de usuário", companyEntity.getUsername());
+                        throw new UserAlreadyExistsException("nome de usuário", companyEntity.getUsername(), "Empresa");
                     } else if (emailExists) {
-                        throw new UserAlreadyExistsException("email", companyEntity.getEmail());
+                        throw new UserAlreadyExistsException("email", companyEntity.getEmail(), "Empresa");
                     }
                 });
         return this.companyRepository.save(companyEntity);
