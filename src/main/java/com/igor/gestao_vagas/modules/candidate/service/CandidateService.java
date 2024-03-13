@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.igor.gestao_vagas.exceptions.UserAlreadyExistsException;
 import com.igor.gestao_vagas.modules.candidate.CandidateEntity;
-import com.igor.gestao_vagas.modules.candidate.CandidateRepository;
+import com.igor.gestao_vagas.modules.candidate.repository.CandidateRepository;
 
 import jakarta.validation.Valid;
 

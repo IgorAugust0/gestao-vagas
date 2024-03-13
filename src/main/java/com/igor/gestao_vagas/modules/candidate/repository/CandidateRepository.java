@@ -1,6 +1,8 @@
-package com.igor.gestao_vagas.modules.candidate;
+package com.igor.gestao_vagas.modules.candidate.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.igor.gestao_vagas.modules.candidate.CandidateEntity;
 
 import java.util.Optional;
 import java.util.UUID;

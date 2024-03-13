@@ -1,4 +1,4 @@
-package com.igor.gestao_vagas.modules.company.entities;
+package com.igor.gestao_vagas.modules.company.entity;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
