@@ -1,5 +1,6 @@
 package com.igor.gestao_vagas.modules.company.service;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -13,9 +14,11 @@ import jakarta.validation.Valid;
 public class CompanyService {
 
     private final CompanyRepository companyRepository;
+    private final PasswordEncoder passwordEncoder;
 
-    public CompanyService(CompanyRepository companyRepository) {
+    public CompanyService(CompanyRepository companyRepository, PasswordEncoder passwordEncoder) {
         this.companyRepository = companyRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     public CompanyEntity executeCreateCompany(@Valid @RequestBody CompanyEntity companyEntity) {
@@ -30,6 +33,8 @@ public class CompanyService {
                         throw new UserAlreadyExistsException("email", companyEntity.getEmail(), "Empresa");
                     }
                 });
+        var password = passwordEncoder.encode(companyEntity.getPassword());
+        companyEntity.setPassword(password);
         return this.companyRepository.save(companyEntity);
     }
 }
