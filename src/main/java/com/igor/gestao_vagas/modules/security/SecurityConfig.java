@@ -10,7 +10,13 @@ public class SecurityConfig {
 
     @Bean // override do metodo original e desabilitando o csrf
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.csrf(csrf -> csrf.disable());
+        http
+                .csrf(csrf -> csrf.disable())
+                .authorizeHttpRequests(auth -> {
+                    auth.requestMatchers("/candidate/").permitAll()
+                            .requestMatchers("/company/").permitAll();
+                    auth.anyRequest().authenticated();
+                });
         return http.build();
     }
 }
