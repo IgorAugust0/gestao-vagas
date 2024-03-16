@@ -1,4 +1,4 @@
-package com.igor.gestao_vagas.modules.security;
+package com.igor.gestao_vagas.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

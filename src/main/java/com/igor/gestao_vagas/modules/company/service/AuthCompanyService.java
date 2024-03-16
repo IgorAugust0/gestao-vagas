@@ -14,7 +14,7 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.igor.gestao_vagas.modules.company.dto.AuthCompanyDTO;
 import com.igor.gestao_vagas.modules.company.repository.CompanyRepository;
-import com.igor.gestao_vagas.modules.security.SecretKeyGenerator;
+import com.igor.gestao_vagas.security.SecretKeyGenerator;
 
 @Service
 public class AuthCompanyService {

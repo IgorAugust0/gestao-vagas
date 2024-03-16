@@ -1,4 +1,4 @@
-package com.igor.gestao_vagas.modules.security;
+package com.igor.gestao_vagas.security;
 
 import java.io.IOException;
 
