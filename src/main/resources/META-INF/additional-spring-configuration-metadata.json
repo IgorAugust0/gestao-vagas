@@ -1,0 +1,9 @@
+{
+  "properties": [
+    {
+      "name": "security.token.secret",
+      "type": "java.lang.String",
+      "description": "This additional-spring-configuration-metadata was made with the only purpose of getting rid of the warning: 'security.token.secret' is an unknown property'"
+    }
+  ]
+}
