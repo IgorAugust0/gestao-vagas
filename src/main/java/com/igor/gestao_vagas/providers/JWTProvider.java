@@ -1,7 +1,7 @@
 package com.igor.gestao_vagas.providers;
 
+import java.time.Duration;
 import java.time.Instant;
-import java.util.Date;
 import java.util.List;
 
 // import org.springframework.beans.factory.annotation.Value;
@@ -31,23 +31,23 @@ public class JWTProvider {
         var token = JWT.create()
                 .withIssuer("gestao_vagas")
                 .withSubject(subject)
-                .withExpiresAt(Date.from(Instant.now().plusSeconds(300)))
-                .withIssuedAt(Date.from(Instant.now()))
+                .withExpiresAt(Instant.now().plus(Duration.ofMinutes(5)))
+                .withIssuedAt(Instant.now())
                 .sign(algorithm);
 
         return token;
     }
 
-    // overload do método para adicionar claims
-    public String generateToken(String subject, String claimName, List<String> claimValue) {
+    // overload do método para adicionar claims e expire
+    public String generateToken(String subject, String claimName, List<String> claimValue, Instant expiresIn) {
         Algorithm algorithm = Algorithm.HMAC256(secretKey);
 
         var token = JWT.create()
                 .withIssuer("gestao_vagas")
                 .withSubject(subject)
                 .withClaim(claimName, claimValue)
-                .withExpiresAt(Date.from(Instant.now().plusSeconds(300)))
-                .withIssuedAt(Date.from(Instant.now()))
+                .withExpiresAt(expiresIn)
+                .withIssuedAt(Instant.now())
                 .sign(algorithm);
 
         return token;

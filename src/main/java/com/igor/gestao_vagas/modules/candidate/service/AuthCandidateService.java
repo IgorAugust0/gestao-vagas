@@ -1,15 +1,19 @@
 package com.igor.gestao_vagas.modules.candidate.service;
 
+import java.time.Duration;
+import java.time.Instant;
 import java.util.Arrays;
 
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 
 import com.igor.gestao_vagas.modules.candidate.dto.AuthCandidateRequestDTO;
 import com.igor.gestao_vagas.modules.candidate.dto.AuthCandidateResponseDTO;
 import com.igor.gestao_vagas.modules.candidate.repository.CandidateRepository;
 import com.igor.gestao_vagas.providers.JWTProvider;
 
+@Service
 public class AuthCandidateService {
 
     private final CandidateRepository candidateRepository;
@@ -33,12 +37,15 @@ public class AuthCandidateService {
             throw new UsernameNotFoundException("Username/Password incorrect");
         }
 
+        var expiresIn = Instant.now().plus(Duration.ofMinutes(5));
+        long expiresInEpochSeconds = expiresIn.toEpochMilli();
         String token = this.jwtProvider.generateToken(candidate.getId().toString(), "roles",
-                Arrays.asList("candidate"));
+                Arrays.asList("candidate"), expiresIn);
 
         var authCandidateResponse = AuthCandidateResponseDTO
                 .builder()
                 .access_token(token)
+                .expires_in(expiresInEpochSeconds)
                 .build();
 
         return authCandidateResponse;

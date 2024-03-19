@@ -11,7 +11,7 @@ import com.igor.gestao_vagas.modules.company.dto.AuthCompanyDTO;
 import com.igor.gestao_vagas.modules.company.service.AuthCompanyService;
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/company")
 public class AuthCompanyController {
 
     private final AuthCompanyService authCompanyService;
@@ -20,8 +20,8 @@ public class AuthCompanyController {
         this.authCompanyService = authCompanyService;
     }
 
-    @PostMapping("/company")
-    public ResponseEntity<Object> create(@RequestBody AuthCompanyDTO authCompanyDTO) {
+    @PostMapping("/auth")
+    public ResponseEntity<Object> auth(@RequestBody AuthCompanyDTO authCompanyDTO) {
         try {
             var result = this.authCompanyService.executeAuthComp(authCompanyDTO);
             return ResponseEntity.ok().body(result);
