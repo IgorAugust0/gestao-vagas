@@ -2,7 +2,6 @@ package com.igor.gestao_vagas.modules.company.service;
 
 import javax.security.sasl.AuthenticationException;
 
-// import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
