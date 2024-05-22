@@ -34,3 +34,5 @@ build/
 
 ### Dotenv ###
 src/main/resources/.env
+
+tests.txt
