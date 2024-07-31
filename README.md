@@ -16,7 +16,7 @@ Esta é uma aplicação Spring Boot que permite o gerenciamento de vagas de Recu
    git clone https://github.com/IgorAugust0/gestao-vagas.git
    ```
 
-2. Configure o banco de dados criando um arquivo `.env` no diretório [resources](src\main\resources), seguindo o exemplo do arquivo [.env.example](src\main\resources.env.example):
+2. Configure o banco de dados criando um arquivo `.env` no diretório [resources](src/main/resources), seguindo o exemplo do arquivo [.env.example](src/main/resources/.env.example):
 
    ```properties
    DB_URL=jdbc:postgresql://localhost:5432/mydatabase
